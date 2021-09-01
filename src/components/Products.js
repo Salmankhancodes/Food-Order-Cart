@@ -5,11 +5,11 @@ const Products = () => {
   const [products, setProducts] = useState([])
 
   useEffect((products) => {
-    fetch('https://interviewlog.herokuapp.com/api/posts')
-      .then((response) => response.json())
-      .then((products) => {
+    fetch('/api/products').then((response) =>
+      response.json().then((products) => {
         setProducts(products)
       })
+    )
   }, [])
 
   return (
@@ -17,7 +17,7 @@ const Products = () => {
       <h1 className='text-lg font-bold my-8'>Products</h1>
       <div className='grid grid-cols-5 my-8 gap-24'>
         {products.map((product) => (
-          <Product key={Product._id} product={product} />
+          <Product key={product._id} product={product} />
         ))}
       </div>
     </div>

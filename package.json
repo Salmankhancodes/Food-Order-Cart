@@ -36,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3300/api/products"
+  "proxy": "https://ecom-rest-apis.herokuapp.com/"
 }

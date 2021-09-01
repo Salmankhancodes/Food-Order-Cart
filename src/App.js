@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Products from './pages/Products'
 import Home from './pages/Home'
 import Navigation from './components/Navigation'
 import Cart from './pages/Cart'
+import SinglePage from './pages/SinglePage'
 
 const App = () => {
   return (
@@ -11,7 +12,9 @@ const App = () => {
         <Navigation />
         <Switch>
           <Route path='/' component={Home} exact></Route>
-          <Route path='/products' component={Products}></Route>
+          <Route path='/products' exact component={Products}></Route>
+          <Route path='/products/:_id' component={SinglePage}></Route>
+
           <Route path='/cart' component={Cart}></Route>
         </Switch>
       </Router>
