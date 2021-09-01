@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 const SinglePage = () => {
   const params = useParams()
+  const history = useHistory()
   const [product, setProduct] = useState([])
   useEffect(() => {
     fetch(`/api/products/${params._id}`)
@@ -14,7 +15,14 @@ const SinglePage = () => {
   }, [params._id])
   return (
     <div className='container mx-auto mt-12'>
-      <button className='mb-12 font-bold'>Back</button>
+      <button
+        className='mb-12 font-bold'
+        onClick={() => {
+          history.goBack()
+        }}
+      >
+        Back
+      </button>
       <div className='flex'>
         <img src={product.image} alt='single_pizza_image' />
         <div className='ml-16'>
