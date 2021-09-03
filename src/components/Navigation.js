@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../CartContext'
+import { useContext } from 'react'
 
 const Navigation = () => {
+  const { cart } = useContext(CartContext)
   const cartStyle = {
     background: '#F59E0D',
     display: 'flex',
@@ -26,7 +29,9 @@ const Navigation = () => {
           <li className='ml-6'>
             <Link to='/cart'>
               <div style={cartStyle} className='container flex'>
-                <span className='text-black className="ml-6"'>10</span>
+                <span className='text-black className="ml-6"'>
+                  {cart.total}
+                </span>
                 <img className='ml-2' src='images/cart.png' alt='cart-black' />
               </div>
             </Link>
