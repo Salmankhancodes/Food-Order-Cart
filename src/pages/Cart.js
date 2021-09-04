@@ -27,7 +27,7 @@ const Cart = () => {
         setProducts(products)
         togglePriceFetched(true)
       })
-  }, [cart])
+  }, [cart, priceFetched])
 
   const getQty = (productId) => {
     return cart.items[productId]
@@ -66,6 +66,12 @@ const Cart = () => {
       (product) => product._id !== productID
     )
     setProducts(updatedProductList)
+  }
+
+  const handleOrderNow = () => {
+    window.alert('Order placed successfully !😀')
+    setProducts([])
+    setCart({})
   }
 
   return (
@@ -118,7 +124,12 @@ const Cart = () => {
         <b>Grand Total:</b> Rs {total}
       </div>
       <div className='text-right mt-6'>
-        <button className='bg-yellow-500 px-4 py-2 rounded-full leading-none'>
+        <button
+          onClick={() => {
+            handleOrderNow()
+          }}
+          className='bg-yellow-500 px-4 py-2 rounded-full leading-none'
+        >
           Order Now
         </button>
       </div>
