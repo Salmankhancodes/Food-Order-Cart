@@ -30,7 +30,7 @@ const Navigation = () => {
             <Link to='/cart'>
               <div style={cartStyle} className='container flex'>
                 <span className='text-black className="ml-6"'>
-                  {cart.total}
+                  {cart.total ? cart.total : 0}
                 </span>
                 <img className='ml-2' src='images/cart.png' alt='cart-black' />
               </div>
